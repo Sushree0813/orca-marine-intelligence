@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ORCA — Marine Ecosystem Reasoning"
+description = "A Smart India Hackathon 2026 marine disaster-management decision-support prototype with interactive coastal maps, deterministic demo intelligence, collaborative agent workflow visualization, route safety, alerts, geofencing, evidence exploration, and system architecture views."
+version = "1.0.0"
+id = "artifacts/orca-marine-intelligence"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24962
+
+[services.development]
+run = "pnpm --filter @workspace/orca-marine-intelligence run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/orca-marine-intelligence", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/orca-marine-intelligence/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24962"
+BASE_PATH = "/"
