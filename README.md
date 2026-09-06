@@ -66,6 +66,7 @@ The platform combines **AI reasoning, geospatial intelligence, weather and ocean
 
 ## 🏗️ System Architecture
 
+```text
                     ┌─────────────────────┐
                     │      ORCA UI        │
                     │   React + Vite      │
